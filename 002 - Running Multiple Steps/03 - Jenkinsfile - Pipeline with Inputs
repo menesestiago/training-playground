@@ -6,6 +6,16 @@ pipeline {
 	}
     stages {
         stage('build') {
+            input {
+                message "Name?"
+                parameters {
+                    string(name: 'NAME', defaultValue: '', description: '')
+                }
+		input {
+                message "Age?"
+                parameters {
+                    string(name: 'AGE', defaultValue: '', description: '')
+                }
             steps {
                 echo "$NAME"
                 echo "$AGE"
