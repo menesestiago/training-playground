@@ -7,11 +7,14 @@ pipeline {
     stages {
     	stage('run') {
             steps {
-                sh 'date > result.txt'
+                saveAndPrintDate("result.txt")
 		sh 'sleep 10s'
-		sh 'date >> result.txt'
-		sh 'cat result.txt'
+		saveAndPrintDate("result.txt")
             }
         }
     }
+}
+
+def saveAndPrintDate(filename = '') {
+    sh "date > $filename && cat $filename"
 }
