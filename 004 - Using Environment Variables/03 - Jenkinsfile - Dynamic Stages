@@ -10,13 +10,11 @@ pipeline {
                 script {
                 	def buildConfigs = readJSON text: '[{name: "build", command: "date"}, {name: "run", command: "hostname"}]'
 			
-			stages {
-				buildConfigs.each{ buildConfig ->
-					stage($buildConfig.name) {
-						steps{sh "$buildConfig.command"}
-						}
+			buildConfigs.each{ buildConfig ->
+				stage(buildConfig.name) {
+					steps{sh "$buildConfig.command"}
 					}
-			}
+				}
                 }
             }
         }
