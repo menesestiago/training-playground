@@ -3,6 +3,7 @@ pipeline {
 		docker { 
 			image 'alpine:latest' 
 		}
+		parameters { string(name: 'NOTIFICATION_EMAIL', defaultValue: 'teste@email.com', description: '') }
 	}
     stages {
         stage('build') {
