@@ -10,7 +10,7 @@ pipeline {
     stages {
     	stage(test) {
 		steps {
-			set NUMBER_OF_ISSUES = 10
+			sh 'set NUMBER_OF_ISSUES = 10'
 		}
 		
 	}
