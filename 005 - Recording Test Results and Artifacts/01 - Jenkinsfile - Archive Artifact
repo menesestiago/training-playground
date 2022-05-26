@@ -13,7 +13,7 @@ pipeline {
         }
     }
     post {
-    	finally {
+    	always {
 		archiveArtifacts artifacts: "google.html"
 	}
     }
