@@ -7,16 +7,16 @@ pipeline {
     stages {
         stage('global') {
             steps {
-                scripts {
+                script {
                 	def buildConfigs = readJSON text: '[{name: "build", command: "date"}, {name: "run", command: "hostname"}]'
-				  
-                	buildConfigs.each{ buildConfig ->
-                		stage($buildConfig.name) {
-					steps{
-						sh "$buildConfig.command"
+			
+			stages {
+				buildConfigs.each{ buildConfig ->
+					stage($buildConfig.name) {
+						steps{sh "$buildConfig.command"}
+						}
 					}
-					}
-				}
+			}
                 }
             }
         }
