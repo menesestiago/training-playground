@@ -18,7 +18,9 @@ pipeline {
 				  
                 	buildConfigs.each{ buildConfig ->
                 		stage($buildConfig.name) {
-					sh "$buildConfig.command"
+					steps{
+						sh "$buildConfig.command"
+					}
 					}
 				}
                 }
