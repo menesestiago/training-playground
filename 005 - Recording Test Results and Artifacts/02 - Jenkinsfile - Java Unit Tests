@@ -9,8 +9,8 @@ pipeline {
 		steps {
 			configFileProvider(
 				[configFile(fileId: 'settings.xml',
-					variable: 'MAVEN_SETTINGS')]) {
-				sh 'mvn -s $MAVEN_SETTINGS clean install'
+					target_location: 'settings.xml')]) {
+				sh 'mvn -s settings.xml clean install'
 			}
 		}
         }
