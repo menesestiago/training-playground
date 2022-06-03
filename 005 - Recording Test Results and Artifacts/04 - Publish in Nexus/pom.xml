@@ -5,6 +5,15 @@
 	<groupId>training</groupId>
 	<artifactId>java-app</artifactId>
 	<version>1.0.0</version>
+	
+	<distributionManagement>
+        <repository>
+        <id>maven-releases</id>
+        <name>Work pls</name>
+        <url>http://nexus:8081/repository/maven-releases</url>
+        </repository>
+    </distributionManagement>
+	
 	<dependencies>
 		<dependency>
 			<groupId>org.junit.jupiter</groupId>
