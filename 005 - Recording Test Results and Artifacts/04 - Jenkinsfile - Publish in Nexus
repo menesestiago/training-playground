@@ -15,9 +15,13 @@ pipeline {
             }
 		}
         stage('nexus') {
-                steps {
+            steps {
+                configFileProvider(
+                    [configFile(fileId: 'settings.xml',
+                            targetLocation: 'settings.xml')]) {
                     sh 'mvn -s settings.xml -f "005 - Recording Test Results and Artifacts/04 - Publish in Nexus" clean deploy'
                 }
+            }
             }
         }
 }
